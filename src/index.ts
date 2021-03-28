@@ -1,18 +1,9 @@
-import express, { Express, Request, Response } from 'express';
-import helmet from 'helmet';
-import dotenv from 'dotenv';
+import {ApolloServer} from 'apollo-server';
+import typeDefs from './graphql/typeDefs';
+import resolvers from './graphql/resolvers';
 
-dotenv.config();
+const server = new ApolloServer({typeDefs, resolvers});
 
-const PORT = 3000;
-const app: Express = express();
-
-app.use(helmet());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.get('/', (req: Request, res: Response) => {
-    res.send('<h1>Hello from the TypeScript world!</h1>');
-})
-
-app.listen(PORT, () => console.log(`Running on Port:${PORT} ⚡`));
+server.listen().then(({url}) => {
+    console.log(`🚀  Server ready at ${url}`)
+});
