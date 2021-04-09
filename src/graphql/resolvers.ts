@@ -1,10 +1,15 @@
-import {books} from './typeDefs';
-import {Book} from '../generated/graphql'
+import { PokemonGroup } from '../generated/graphql';
 
 const resolvers = {
-    Query: {
-        books: (): Array<Book> => books,
+  Query: {
+    pokemonGroup: async (
+      _source: unknown,
+      { id }: { id: string },
+      { dataSources }: { dataSources: any },
+    ): Promise<PokemonGroup> => {
+      return dataSources.pokeAPI.getPokemonGroup();
     },
+  },
 };
 
 export default resolvers;
