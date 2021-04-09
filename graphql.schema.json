@@ -8,11 +8,11 @@
     "types": [
       {
         "kind": "OBJECT",
-        "name": "Book",
+        "name": "PokemonGroup",
         "description": null,
         "fields": [
           {
-            "name": "title",
+            "name": "name",
             "description": null,
             "args": [],
             "type": {
@@ -28,7 +28,7 @@
             "deprecationReason": null
           },
           {
-            "name": "author",
+            "name": "url",
             "description": null,
             "args": [],
             "type": {
@@ -65,7 +65,7 @@
         "description": null,
         "fields": [
           {
-            "name": "books",
+            "name": "pokemonGroup",
             "description": null,
             "args": [],
             "type": {
@@ -73,7 +73,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "Book",
+                "name": "PokemonGroup",
                 "ofType": null
               }
             },
