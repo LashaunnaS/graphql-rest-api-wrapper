@@ -1,13 +1,13 @@
-import { PokemonGroup } from '../generated/graphql';
+import { PokemonDefaultData } from '../generated/graphql';
 
 const resolvers = {
   Query: {
-    pokemonGroup: async (
+    getPokemonDefaultData: async (
       _source: unknown,
       { id }: { id: string },
       { dataSources }: { dataSources: any },
-    ): Promise<PokemonGroup> => {
-      return dataSources.pokeAPI.getPokemonGroup();
+    ): Promise<PokemonDefaultData> => {
+      return dataSources.pokeAPI.getPokemonDefaultData(id);
     },
   },
 };
