@@ -1,13 +1,24 @@
 import { gql } from 'apollo-server';
 
 const typeDefs = gql`
-  type PokemonGroup {
+  type PokemonDefaultData {
+    id: Int!
+    name: String!
+    types: [PokemonTypes]
+    # color: Color
+  }
+
+  type PokemonTypes {
+    type: PokemonType
+  }
+
+  type PokemonType {
     name: String!
     url: String!
   }
 
   type Query {
-    pokemonGroup: [PokemonGroup]
+    getPokemonDefaultData(id: Int!): PokemonDefaultData
   }
 `;
 
