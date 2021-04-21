@@ -6,7 +6,7 @@ export default class PokeAPI extends RESTDataSource {
     this.baseURL = 'https://pokeapi.co/api/v2/';
   }
 
-  async getPokemonDefaultData(id: number): Promise<Record<string, unknown>> {
+  async getPokemon(id: number): Promise<Record<string, unknown>> {
     const data = await this.get(`pokemon/${id}/`);
     return data;
   }
