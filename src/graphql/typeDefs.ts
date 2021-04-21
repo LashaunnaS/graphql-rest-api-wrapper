@@ -1,11 +1,15 @@
 import { gql } from 'apollo-server';
 
 const typeDefs = gql`
-  type PokemonDefaultData {
+  type Query {
+    getPokemon(id: Int!): Pokemon
+  }
+
+  type Pokemon {
     id: Int!
     name: String!
     types: [PokemonTypes]
-    # color: Color
+    pokemonSpecies(id: Int!): PokemonSpecies
   }
 
   type PokemonTypes {
@@ -17,8 +21,13 @@ const typeDefs = gql`
     url: String!
   }
 
-  type Query {
-    getPokemonDefaultData(id: Int!): PokemonDefaultData
+  type PokemonSpecies {
+    color: Color
+  }
+
+  type Color {
+    name: String!
+    url: String!
   }
 `;
 
