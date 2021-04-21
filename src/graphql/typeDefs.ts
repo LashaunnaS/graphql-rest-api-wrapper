@@ -9,7 +9,7 @@ const typeDefs = gql`
     id: Int!
     name: String!
     types: [PokemonTypes]
-    pokemonSpecies(id: Int!): PokemonSpecies
+    pokemonSpecies: PokemonSpecies
   }
 
   type PokemonTypes {
