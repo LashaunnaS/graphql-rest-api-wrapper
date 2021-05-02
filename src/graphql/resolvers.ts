@@ -3,10 +3,12 @@ import { Pokemon, PokemonSpecies } from '../generated/graphql';
 const resolvers = {
   Pokemon: {
     pokemonSpecies: async (
-      _source: Record<string, unknown>,
+      { id }: { id: string },
+      _source: unknown,
       { dataSources }: { dataSources: any },
     ): Promise<PokemonSpecies> => {
-      return dataSources.pokeAPI.getPokemonSpeciesData(_source.id);
+      console.log(_source);
+      return dataSources.pokeAPI.getPokemonSpeciesData(id);
     },
   },
   Query: {
