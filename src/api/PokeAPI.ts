@@ -1,3 +1,10 @@
+/*
+* imports RESTDataSource class
+* used for fetching data
+* from a REST API and exposing it
+* via GraphQL within Apollo Server.
+*/
+
 import {RESTDataSource} from 'apollo-datasource-rest';
 
 export default class PokeAPI extends RESTDataSource {
